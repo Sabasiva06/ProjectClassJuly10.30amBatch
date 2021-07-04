@@ -42,4 +42,22 @@ public class SampleBrowserLaunch {
 
 	}
 	
+	@Test
+	public void tc03() {
+
+		WebElement txtUserNamee = driver.findElement(By.id("email"));
+		txtUserNamee.sendKeys("WelcomeJava");
+		String attribute = txtUserNamee.getAttribute("value");
+		Assert.assertEquals("Verify UserName", attribute, "WelcomeJava");
+		WebElement txtPassword = driver.findElement(By.id("pass"));
+		txtPassword.sendKeys("Hijavaa");
+		String attribute2 = txtPassword.getAttribute("value");
+		Assert.assertEquals("Verify Password", attribute2, "Hijavaa");
+		WebElement btnLoggin = driver.findElement(By.name("login"));
+		boolean enabled = btnLoggin.isEnabled();
+		Assert.assertTrue("Login Button verification", enabled);
+		btnLoggin.click();
+
+	}
+	
 }
